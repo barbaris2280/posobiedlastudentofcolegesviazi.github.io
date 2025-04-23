@@ -1,0 +1,206 @@
+ю<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт для студентов ВКСИТа</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('img/566.png');
+            /* Укажите путь к вашему изображению */
+            background-size: cover;
+            /* Заставляет изображение покрывать весь фон */
+            background-position: center;
+            /* Центрирует изображение */
+            margin: 0;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-image: url('img/528.png');
+            /* Укажите путь к вашему изображению */
+            background-size: cover;
+            /* Заставляет изображение покрывать весь фон */
+            background-position: center;
+            /* Центрирует изображение */
+            color: #ffffff;
+            padding: 20px;
+            text-align: left;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            display: flex;
+            /* Используем flexbox */
+            align-items: center;
+            /* Центрируем по вертикали */
+            justify-content: left;
+            /* Центрируем по горизонтали */
+        }
+
+        header img {
+            margin-right: 150px;
+            /* Отступ между изображением и заголовком */
+        }
+		 nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+		 .content-container {
+            width: 80%;
+        }section {
+            background-image: url('img/444.png');
+            /* Укажите путь к вашему изображению */
+            background-size: cover;
+            /* Заставляет изображение покрывать весь фон */
+            background-position: center;
+            /* Центрирует изображение */
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+         .notes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .note-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+        .note {
+            background-image: url('img/654.png');
+            /* Укажите путь к вашему изображению */
+            background-size: cover;
+            /* Заставляет изображение покрывать весь фон */
+            background-position: center;
+            /* Центрирует изображение */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            text-align: justify;
+            width: 45%;
+        }
+
+        .note:nth-child(odd) {
+            align-self: flex-start;
+        }
+
+        .note:nth-child(even) {
+            align-self: flex-end;
+        }
+		 .note2 {
+            background-image: url('img/456.png');
+            /* Укажите путь к вашему изображению */
+            background-size: cover;
+            /* Заставляет изображение покрывать весь фон */
+            background-position: center;
+            /* Центрирует изображение */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            text-align: justify;
+            width: 45%;
+        }
+
+        .note2:nth-child(odd) {
+            align-self: flex-start;
+        }
+
+        .note2:nth-child(even) {
+            align-self: flex-end;
+        }
+     .center {
+             text-align: center;
+        }
+        .right {
+             text-align: right;
+        }
+        .left {
+             text-align: left;
+        }
+	</style>	
+</head>
+<body>
+    <header>
+        <a href="https://vksit.ru/#/">
+            <img src="img/124.png" width="359" height="59">
+        </a>
+        <p class="center"><h1>Сайт для студентов ВКСИТа</h1></p>
+    </header>
+	<nav>
+        <a href="https://vksit.ru/#/">Сайт ВКСИТа</a>
+        <a href="https://vk.com/vks_it?from=groups">Группа Вк</a>
+        <a href="https://ssuz.vip.edu35.ru/auth/login-page">Сайт Электронного дневника</a>
+    </nav>
+	 <div class="content-container">
+        <section>
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Готовое пособие по обучению</h2>
+				</div>
+	            <div class="notes-container">
+                <div class="note-wrapper">
+                <div class="note" >
+                </div>
+                <img src="img/788.png" width="500" height="300"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="note-wrapper">
+                <img src="img/998.png" width="500" height="375"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note2">
+            </div>
+            <div class="note-wrapper">
+                <div class="note">
+                </div>
+                <img src="img/860.png" width="400" height="300"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+                <div class="note-wrapper">
+                    <img src="img/619.png" width="512" height="287"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note2">
+                </div>
+            </div>
+            <div class="note-wrapper">
+                <div class="note">
+                </div>
+                <img src="img/423.png" width="512" height="385"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="note-wrapper">
+                <img src="img/118.png" width="512" height="288"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note2">
+                </div>
+            </div>
+            <div class="note-wrapper">
+                <div class="note">
+                </div>
+                <img src="img/791.png" width="512" height="287"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+                <div class="note-wrapper">
+                    <img src="img/425.png" width="384" height="384"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note2">
+                </div>
+              </div>
+            </div>
+			</section>
+		</div>
+  </body>
+  </html>
