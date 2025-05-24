@@ -2,21 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Сайт для студентов ВКСИТа</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-image: url('img/566.png');
-            /* Укажите путь к вашему изображению */
             background-size: cover;
-            /* Заставляет изображение покрывать весь фон */
             background-position: center;
-            /* Центрирует изображение */
             margin: 0;
             background-color: #f8f9fa;
-            margin: 0;
-            padding: 20px;
+            padding: 10px;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -25,41 +21,50 @@
 
         header {
             background-image: url('img/777.png');
-            /* Укажите путь к вашему изображению */
             background-size: cover;
-            /* Заставляет изображение покрывать весь фон */
             background-position: center;
-            /* Центрирует изображение */
             color: #ffffff;
-            padding: 20px;
-            text-align: left;
+            padding: 15px;
+            text-align: center;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             width: 100%;
             display: flex;
-            /* Используем flexbox */
+            flex-direction: column;
             align-items: center;
-            /* Центрируем по вертикали */
-            justify-content: left;
-            /* Центрируем по горизонтали */
         }
 
         header img {
-            margin-right: 150px;
-            /* Отступ между изображением и заголовком */
+            margin-bottom: 10px;
+            max-width: 100%;
+            height: auto;
         }
 
         nav {
-            margin: 20px 0;
+            margin: 15px 0;
             text-align: center;
+            width: 100%;
+        }
+
+        .nav-image {
+            display: block;
+            margin: 0 auto 15px auto;
+            max-width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         nav a {
-            margin: 0 15px;
+            margin: 0 5px;
             text-decoration: none;
             color: #007bff;
             font-weight: bold;
             transition: color 0.3s;
+            font-size: 14px;
         }
 
         nav a:hover {
@@ -68,136 +73,187 @@
         }
 
         .content-container {
-            width: 80%;
+            width: 95%;
+            max-width: 1200px;
         }
 
         section {
             background-image: url('img/444.png');
-            /* Укажите путь к вашему изображению */
             background-size: cover;
-            /* Заставляет изображение покрывать весь фон */
             background-position: center;
-            /* Центрирует изображение */
-            padding: 35px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
             margin-bottom: 20px;
         }
 
+        .prediction-container {
+            display: flex;
+            flex-direction: row-reverse; 
+            align-items: center;
+            justify-content: flex-end; 
+            gap: 10px;
+        }
+
+        #output {
+            font-size: 20px;
+            font-weight: bold; 
+            margin-left: 10px; 
+            white-space: nowrap; 
+        }
         .notes-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
+        
         .note-wrapper {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 15px;
             align-items: center;
-
-
         }
-        .note {
+        
+        .note, .note2 {
             background-image: url('img/167.png');
-            /* Укажите путь к вашему изображению */
             background-size: cover;
-            /* Заставляет изображение покрывать весь фон */
             background-position: center;
-            /* Центрирует изображение */
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             font-size: 14px;
             text-align: justify;
-            width: 45%;
-        }
-
-        .note:nth-child(odd) {
-            align-self: flex-start;
-        }
-
-        .note:nth-child(even) {
-            align-self: flex-end;
-        }
-
-        .notes2-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .note2 {
             background-image: url('img/366.png');
-            /* Укажите путь к вашему изображению */
-            background-size: cover;
-            /* Заставляет изображение покрывать весь фон */
-            background-position: center;
-            /* Центрирует изображение */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            font-size: 14px;
-            text-align: justify;
-            width: 45%;
         }
 
-        .note2:nth-child(odd) {
-            align-self: flex-start;
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+        }
+        
+        h2 img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+        }
+        
+        h2 img:hover {
+            transform: scale(1.1);
         }
 
-        .note2:nth-child(even) {
-            align-self: flex-end;
+        img.content-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s;
+        }
+        
+        img.content-image:hover {
+            transform: scale(1.05);
         }
 
         footer {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
             color: #777;
             width: 100%;
+            font-size: 14px;
         }
+        
         .center {
-             text-align: center;
+            text-align: center;
         }
-        .right {
-             text-align: right;
-        }
-        .left {
-             text-align: left;
-        }
+        
         button {
-            padding: 12px 25px;
-            font-size: 18px;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
             background-image: url('img/444.png');
-            /* Укажите путь к вашему изображению */
             background-size: cover;
-            /* Заставляет изображение покрывать весь фон */
             background-position: center;
-            /* Центрирует изображение */
             color: white;
             border: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            white-space: nowrap;
         }
 
-        p {
-            font-size: 22px;
-            font-weight: bold;
-            color: #333;
-            margin-top: 30px;
-            text-align: center;
-        }
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+        
         .animated-text {
             animation: fadeIn 3s forwards;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            header {
+                flex-direction: row;
+                padding: 20px;
+            }
+            
+            header img {
+                margin-right: 150px;
+                margin-bottom: 0;
+            }
+            
+            .nav-links {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            nav a {
+                margin: 0 15px;
+                font-size: 16px;
+            }
+            
+            .content-container {
+                width: 80%;
+            }
+            
+            section {
+                padding: 35px;
+            }
+            
+            .note-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .note, .note2 {
+                width: 45%;
+            }
+            
+            .section-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <header>
         <a href="https://vksit.ru/#/">
             <img src="img/124.png" width="359" height="59">
@@ -205,22 +261,23 @@
         <h1>Сайт для студентов ВКСИТа</h1>
     </header>
     <nav>
-        <a href="https://vksit.ru/#/">Сайт ВКСИТа</a>
-        <a href="https://vk.com/vks_it?from=groups">Группа Вк</a>
-        <a href="https://ssuz.vip.edu35.ru/auth/login-page">Сайт Электронного дневника</a>
+        <img src="img/677.png" class="nav-image" width="342" height="75" alt="изображение 3" onclick="toggleSound()" style="transition: 0.3s;cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="nav-links">
+            <a href="https://vksit.ru/#/">Сайт ВКСИТа</a>
+            <a href="https://vk.com/vks_it?from=groups">Группа Вк</a>
+            <a href="https://ssuz.vip.edu35.ru/auth/login-page">Сайт Электронного дневника</a>
+        </div>
     </nav>
 
     <div class="content-container">
         <section>
-
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="section-header">
                 <h2>Готовое пособие по обучению</h2>
-                <div style="display: flex; align-items: center;">
-                    <button onclick="showRandomPhrase()" style="margin-left: 10px;">прогноз на сегодня</button>
-                    <p id="output" class="right" style="margin-left: 10px;"></p>
+                <div class="prediction-container">
+                    <p id="output"></p> 
+                    <button onclick="showRandomPhrase()">прогноз на сегодня</button>
                 </div>
             </div>
-
             <script>
                 const phrases = [
                     "получишь 5",
@@ -228,39 +285,37 @@
                     "получишь 3",
                     "получишь 2",
                     "отчисление",
-					"увольнение"
+                    "увольнение"
                 ];
-
+        
                 function showRandomPhrase() {
                     const randomIndex = Math.floor(Math.random() * phrases.length);
                     document.getElementById("output").textContent = phrases[randomIndex];
-                    document.getElementById("output").style.fontStyle = "italic";
-                    document.getElementById("output").style.marginTop = "+17px";
                 }
             </script>
             <div class="notes-container">
                 <div class="note-wrapper">
                 <div class="note" >
                     <dif class="animated-text">
-                    <h2>1. Общая информация о колледже     <img src="img/sviaz.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    <h2>1. Общая информация о колледже     <img src="img/sviaz.png" style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
                     Вологодский колледж связи и информационных технологий (ВКСИТ) предлагает обучение по современным
                     направлениям в области связи и IT. Колледж располагает современным оборудованием и
                     высококвалифицированным преподавательским составом.<br>
                     <h3>Основные сведения</h3><br>
                     Полное наименование автономного учреждения:<br>
-                    Автономное профессиональное образовательное учреждение Вологодской области “Вологодский колледж связи и информационных технологий”.<br>
-                    Официальное сокращенное наименование: “АПОУ ВО “ВКСиИТ”.<br>
-                    Организационно-правовая форма – учреждение.<br>
-                    Тип учреждения – автономное учреждение.<br>
+                    Автономное профессиональное образовательное учреждение Вологодской области "Вологодский колледж связи и информационных технологий".<br>
+                    Официальное сокращенное наименование: "АПОУ ВО "ВКСиИТ".<br>
+                    Организационно-правовая форма - учреждение.<br>
+                    Тип учреждения - автономное учреждение.<br>
                     Учреждение в соответствии с реализуемыми образовательными программами по типу является профессиональной образовательной организацией.<br>
                      </dif>
                 </div>
             
-                <img src="img/788.png" width="500" height="300"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/788.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
        
             <div class="note-wrapper">
-                <img src="img/998.png" width="500" height="375"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/998.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note2">
                     <dif class="animated-text">
                     <h2>2. Направления обучения     <img src="img/robotics.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
@@ -281,13 +336,13 @@
                     Практика: обязательная производственная практика на предприятиях связи и IT-компаниях для получения
                 </div>
             </dif>
-                <img src="img/860.png" width="400" height="300"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/860.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
                 <div class="note-wrapper">
-                    <img src="img/619.png" width="512" height="287"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="img/619.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note2"> <dif class="animated-text">
                     <h2>4. Курсы и дисциплины     <img src="img/radioelectronic.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
-                    Студенты могут посткпить на одну из даных специальностей:<br><br>
+                    Студенты могут поступить на одну из даных специальностей:<br><br>
 
                     Электромонтер охранно - пожарной сигнализации <br>
                     Сети связи и системы коммутации	<br>
@@ -327,10 +382,10 @@
                     Актив первичного отделения Первых<br>
                      </dif>
                 </div>
-                <img src="img/423.png" width="512" height="385"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/423.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
             <div class="note-wrapper">
-                <img src="img/118.png" width="512" height="288"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/118.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note2"> <dif class="animated-text">
                     <h2>6. Поступление     <img src="img/agriculture.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
                     Документы: для поступления необходимы аттестат о среднем образовании и результаты ЕГЭ (если
@@ -350,10 +405,10 @@
                     трудоустройства студентов.
                 </dif>
             </div>
-                <img src="img/791.png" width="512" height="287"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/791.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
                 <div class="note-wrapper">
-                    <img src="img/425.png" width="384" height="384"style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="img/425.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note2">
                     <dif class="animated-text">
                     <h2>8. Контакты и ресурсы     <img src="img/fuel.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
@@ -372,11 +427,11 @@
             </div>
             <dif class="animated-text">
             <details>
-                <summary><h2><p class="center">история колледжа</p></h2></summary>
+                <summary><h2>история колледжа</h2></summary>
 
 
             <p> <h3><p class="center"> История </p></h3>
-                Вологодский колледж связи и информационных технологий – единственная на территории Вологодской области образовательная организация, осуществляющая<br>
+                Вологодский колледж связи и информационных технологий - единственная на территории Вологодской области образовательная организация, осуществляющая<br>
                 подготовку кадров для Цифровой экономики региона, по направлениям:<br>
                 информационные технологии;<br>
                 электроника;<br>
@@ -388,7 +443,7 @@
                 «Электромонтер линейных сооружений и абонентских устройств радиофикации и сельской <br>телефонной связи»; <br>
                 «Монтажник связи по монтажу телефонного оборудования»; <br>
                 «Кабельщик-спайщик»; <br>
-                «Электромонтер – измеритель»;<br>
+                «Электромонтер - измеритель»;<br>
                 «Приборист-измеритель электронной техники»; <br>
                 «Оператор связи»; <br>
                 «Монтажник электромеханических, радиотехнических приборов и систем»; <br>
@@ -396,7 +451,7 @@
                 «Оператор счетно-вычислительных машин для сберкасс»; <br>
                 «Оператор вычислительной техники»; <br>
                 «Монтажник станционного оборудования сельской телефонной связи»; <br>
-                «Монтажник связи – спайщик»; <br>
+                «Монтажник связи - спайщик»; <br>
                 «Оператор почтовой связи»; <br>
                 «Телеграфист»; <br>
                 «Бухгалтер»; <br>
@@ -415,112 +470,22 @@
                 С развитием технологий и с новыми задачами, стоящими перед российской экономикой, реализацией программы «Цифровая экономика» появились новые современные направления: <b>программист; администратор баз данных; разработчик веб- и мультимедийных приложений; специалист по информационным системам; специалист по информационным ресурсам.</b><br>
                 С 2014 года колледж участвует в движении «Молодые профессионалы» (WorldSkills Russia). Учреждение является организатором 6 компетенций в рамках регионального чемпионата «Молодые профессионалы» (WorldSkills Russia):<br><b>
                 информационные кабельные сети; программные решения для бизнеса; электроника; сетевое и системное администрирование; интернет-маркетинг; web-дизайн.</b><br>
-                Вологодский колледж связи и информационных технологий – это базовый учебный центр Академии Ворлдскиллс в рамках реализации проектов:<br>
+                Вологодский колледж связи и информационных технологий - это базовый учебный центр Академии Ворлдскиллс в рамках реализации проектов:<br>
                 Билет в будущее (профориентационный проект);<br>
                 Обучение людей предпенсионного возраста (50 +);<br>
                 Обучение лиц, пострадавших от коронавирусной инфекции.<br>
                 Колледж участвует в IT кластере Вологодской области, является членом Союза Вологодской торгово-промышленной палаты. В колледже реализуются программы повышения квалификации специалистов отрасли связи.<br>
                 В 2018 году в колледже создан Региональный центр технического творчества в сфере информационных, коммуникационных технологий и электроники, в котором реализуются программы дополнительного образования детей и взрослых, повышения квалификации педагогических работников разного уровня.<br>
                 Студенческая жизнь очень насыщенная: это и участие в социальных проектах, конференциях, олимпиадах, конкурсах, спортивных соревнований различного уровня.<br>
-                Коллектив Вологодского колледжа связи – это профессионалы высокого уровня, находящиеся в постоянном поиске новых идей, достигающие значительных результатов в подготовке квалифицированных кадров для экономики региона.<br>
+                Коллектив Вологодского колледжа связи - это профессионалы высокого уровня, находящиеся в постоянном поиске новых идей, достигающие значительных результатов в подготовке квалифицированных кадров для экономики региона.<br>
 
                 <i><h3><p class="center">«Чем дальше в будущее входим, Тем больше <br>
                 прошлым дорожим, И в старом красоту находим, <br>
-                Хоть новому принадлежим».</p></h3></p></i>
+                Хоть новому принадлежим».</p></h3></i>
+            </p>
 </dif>
                  </details>
         </section>
-
-   
-</body>
-
-</html>
-<!-- <img src="12345.png" alt="изображение 1" width="127" height="127"></a>
-       <img src="123456789.png" alt="изображение 2" width="127" height="127"></a>
-         <img src="666.png" alt="изображение 3" width="127" height="127"></a>
-     <img src="228.png" alt="изображение 4" width="128" height="128"></a>
-        <img src="152.png" alt="изображение 5" width="128" height="128"></a>
     </div>
-    <audio controls>
-        <source src="audio.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
-<button onclick="showRandomPhrase()">придумать отмазу</button>
-        <p id="output"></p>
-
-        <script>
-            const phrases = [
-                "Будильник застрял в пробке, поэтому не прозвенел вовремя.",
-                "Моя собака съела расписание, и я перепутал время.",
-                "Бабушка начала рассказывать историю, и я не смог её перебить – это было бы неуважительно!",
-                "Вышел из дома вовремя, но Вселенная была против меня.",
-                "По дороге встретил кота, и он не отпустил меня, пока я его не погладил.",
-                "Дверь отказалась меня выпускать – пришлось долго уговаривать.",
-                "Я пришёл вовремя, просто в другом измерении.",
-                "На пути был философский камень, пришлось остановиться и подумать о смысле жизни.",
-                "Шёл быстрее света, но из-за относительности времени для вас я опоздал.",
-                "Перепутал реальность с сном и слишком поздно понял, что надо просыпаться.",
-                "Городской Wi-Fi сказал, что время ещё раннее, а я ему поверил.",
-                "Секретная миссия по спасению мира заняла больше времени, чем ожидалось.",
-                "Мой рюкзак слишком долго собирался сам.",
-                "Я был на пути первым, но потом вспомнил, что хочу поспать ещё 5 минут.",
-                "Я решил доказать, что путешествие во времени возможно – и потерпел неудачу.",
-                "Такси заблудилось, хотя я шёл пешком.",
-                "Поднялся на лифте, но он привёз меня в прошлую неделю, пришлось возвращаться.",
-                "Пытался рассчитать минимальное время в пути и ошибся в уравнении.",
-                "Мой внутренний будильник работает на солнечной энергии, а утро было пасмурное.",
-                "Я хотел проверить, как преподаватель отреагирует на моё опоздание. Всё ради науки!"
-            ];
-
-            function showRandomPhrase() {
-                const randomIndex = Math.floor(Math.random() * phrases.length);
-                document.getElementById("output").textContent = phrases[randomIndex];
-            }
-        </script>
-		 </div>
-    <div style="text-align: center;">
-
-    <img src="img/666.png" alt="изображение 3" width="127" height="127" onclick="toggleSound()" style="transition: 0.3s;cursor: pointer;"  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-
-    <audio id="sound">
-        <source id="audioSource" src="img/audio.mp3;" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
-    <audio id="sound">
-        <source id="audioSource" src="img/audio1.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
-    <audio id="sound">
-        <source id="audioSource" src="img/audio2.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
-    <script>
-        const tracks = ["img/audio1.mp3", "img/audio2.mp3", "img/audio.mp3"]; // Список треков
-        let currentTrack = null;
-        let isPlaying = false;
-
-        function toggleSound() {
-            let audio = document.getElementById("sound");
-            let source = document.getElementById("audioSource");
-
-            if (!isPlaying) {
-                let randomTrack;
-                do {
-                    randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
-                } while (randomTrack === currentTrack); // Проверка, чтобы не повторялся трек подряд
-
-                currentTrack = randomTrack;
-                source.src = currentTrack;
-                audio.load();  // Перезагружаем аудио, чтобы применился новый источник
-                audio.play();
-                isPlaying = true;
-            } else {
-                audio.pause();
-                isPlaying = false;
-            }
-        }
-    </script>
-    <footer>
-        <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&copy;</a> 2025 Все права защищены</p>
-    </footer>
-!-->
+</body>
+</html>
