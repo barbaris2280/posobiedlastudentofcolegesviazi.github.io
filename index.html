@@ -73,9 +73,14 @@
         }
 
         .content-container {
-            width: 95%;
-            max-width: 1200px;
-        }
+           
+    text-align: center; /* Для вложенных inline-элементов */
+    width: 100%;
+    max-width: 1200px; /* Рекомендуется ограничить */
+    margin: 0 auto;
+    padding: 10px;
+}
+        
 
         section {
             background-image: url('img/444.png');
@@ -193,6 +198,56 @@
             white-space: nowrap;
         }
 
+         /* Общие стили для вкладок */
+        .tab-content {
+            display: none;  /* Скрываем все вкладки по умолчанию */
+            border: 1px solid #ccc;
+            border-top: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Показываем только активную вкладку */
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Стили для кнопок */
+       .tab-buttons {
+    display: flex;
+    justify-content: center; /* Это выравнивает по центру */
+    gap: 10px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    max-width: 200px;
+    /* Удалено: flex: 1 */
+}
+
+.tab-button.active {
+    background-color: white;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+}
+        
+        .container {
+            width: 100%;
+            max-width: 3000px;
+            margin: 0 auto;
+            padding: 10px;
+            align-items: center; 
+        }
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -250,6 +305,24 @@
                 align-items: center;
             }
         }
+        
+        /* Для мобильных устройств */
+        @media (max-width: 768px) {
+            .tab-buttons {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 5px;
+                border-radius: 5px;
+            }
+            
+            .tab-button.active {
+                margin-bottom: 0;
+            }
+        }
     </style>
 </head>
 
@@ -259,107 +332,114 @@
             <img src="img/124.png" width="359" height="59">
         </a>
         <h1>Сайт для студентов ВКСИТа</h1>
+        <img src="img/508.png" width="359" height="59" class="nav-image"  alt="изображение 3" onclick="toggleSound()" style="transition: 0.3s;cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
     </header>
     <nav>
-        <img src="img/677.png" class="nav-image" width="342" height="75" alt="изображение 3" onclick="toggleSound()" style="transition: 0.3s;cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        
         <div class="nav-links">
             <a href="https://vksit.ru/#/">Сайт ВКСИТа</a>
             <a href="https://vk.com/vks_it?from=groups">Группа Вк</a>
             <a href="https://ssuz.vip.edu35.ru/auth/login-page">Сайт Электронного дневника</a>
         </div>
     </nav>
+    <div class="container">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'Tab1')">Основная </button>
+            <button class="tab-button" onclick="openTab(event, 'Tab2')">Дополнительная </button>
+        </div>
 
+        <div id="Tab1" class="tab-content active">
     <div class="content-container">
         <section>
             <div class="section-header">
-                <h2>Готовое пособие по обучению</h2>
-                <div class="prediction-container">
+               <i><h3><p class="center">Привет, первокурсник!
+
+Этот справочник поможет тебе быстро освоиться в Вологодском колледже связи. 
+
+Вперёд к знаниям!</p></h3></i>
+                 <div class="prediction-container">
                     <p id="output"></p> 
-                    <button onclick="showRandomPhrase()">прогноз на сегодня</button>
                 </div>
             </div>
-            <script>
-                const phrases = [
-                    "получишь 5",
-                    "получишь 4",
-                    "получишь 3",
-                    "получишь 2",
-                    "отчисление",
-                    "увольнение"
-                ];
-        
-                function showRandomPhrase() {
-                    const randomIndex = Math.floor(Math.random() * phrases.length);
-                    document.getElementById("output").textContent = phrases[randomIndex];
-                }
-            </script>
             <div class="notes-container">
                 <div class="note-wrapper">
                 <div class="note" >
-                    <dif class="animated-text">
-                    <h2>1. Общая информация о колледже     <img src="img/sviaz.png" style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
-                    Вологодский колледж связи и информационных технологий (ВКСИТ) предлагает обучение по современным
-                    направлениям в области связи и IT. Колледж располагает современным оборудованием и
-                    высококвалифицированным преподавательским составом.<br>
-                    <h3>Основные сведения</h3><br>
-                    Полное наименование автономного учреждения:<br>
-                    Автономное профессиональное образовательное учреждение Вологодской области "Вологодский колледж связи и информационных технологий".<br>
-                    Официальное сокращенное наименование: "АПОУ ВО "ВКСиИТ".<br>
-                    Организационно-правовая форма - учреждение.<br>
-                    Тип учреждения - автономное учреждение.<br>
-                    Учреждение в соответствии с реализуемыми образовательными программами по типу является профессиональной образовательной организацией.<br>
-                     </dif>
+                    <div class="animated-text">
+                    <h2>Набор специальностей <img src="img/sviaz.png" style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
+                    <h3>В нашем колледже преставлен огромный выбор дисциплин для обучения:</h3>
+                    Документационное обеспечение управления и архивоведение <br>
+                    Техническое обслуживание и ремонт радиоэлектронной техники <br>
+                    Обеспечение информационной безопасности телекоммуникационных систем <br>
+                    Информационные системы и программирование<br>
+                    Сетевое и системное администрирование <br>
+                    Инфокоммуникационные сети и системы связи<br>
+                    Монтаж, техническое обслуживание и ремонт электронных приборов и устройств<br>
+                    Интеллектуальные интегрированные системы <br>
+                    Обеспечение информационной безопасности телекоммуникационных систем <br>
+                    Информационные системы и программирование<br>
+                     </div>
                 </div>
             
-                <img src="img/788.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/568.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
        
             <div class="note-wrapper">
-                <img src="img/998.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/567.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note2">
-                    <dif class="animated-text">
-                    <h2>2. Направления обучения     <img src="img/robotics.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
-                    Связь и телекоммуникации: подготовка специалистов в области мобильной связи, передачи данных и
-                    сетевой инфраструктуры.<br>
-                    Информационные технологии: изучение программирования, разработки программного обеспечения и работы с
-                    базами данных.<br>
-                    Компьютерные сети: проектирование, администрирование и управление компьютерными сетями.
-                </dif>
+                    <div class="animated-text">
+                    <h2>Педагогический состав    <img src="img/robotics.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
+                    <h3>В нашем колледже представлен огромный педагогический состав состоящий из прекрасных преподователей<br>
+                    В данном списке представлены основные педагоги первого курса</h3>
+                    Баранова Ольга Владимировна - История, Обществознание; <br>
+                    Бобылев Александр Юрьевич - История, Обществознание; <br>
+                    Гогова Юлия Олеговна - Информатика; <br>
+                    Казаков Михаил Леонидович - Основы безопасности жизнедеятельности, Безопасность жизнедеятельности; <br>
+                    Кисова Любовь Ивановна - Математика, Основы математической логики, Информатика; <br>
+                    Межакова Елизавета Витальевна - Иностранный язык, Иностранный язык (профессиональный); <br>
+                    Мясникова Виктория Александровна - Физическая культура; <br>
+                    Субботина Анна Валентиновна - Иностранный язык; <br>
+                    Юдичева Наталья Анатольевна - Химия, Биология, ОБЖ;<br> 
+                    Фролова Тамара Эдуардовна - Русский язык, Литература; <br>
+
+                </div>
             </div>
             </div>
             <div class="note-wrapper">
                 <div class="note">
-                    <dif class="animated-text">
-                    <h2>3. Учебный процесс     <img src="img/it.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
-                    Формат обучения: предлагается как очное, так и заочное обучение.<br>
-                    Длительность обучения: обычно составляет 3-4 года в зависимости от выбранной программы.<br>
-                    Практика: обязательная производственная практика на предприятиях связи и IT-компаниях для получения
+                    <div class="animated-text">
+                    <h2>Информация о первом корпусе  <img src="img/it.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
+                  <h3> Наше учебное заведение представляет собой 2 учебных корпуса,<br>
+                   На карте справа вы можете увидеть место положение первого корпуса<br></h3>
+                   Краткая справка о первом корпусе:<br>
+                   Здание является основным учебным корпусом колледжа с 1972 года. Изначально здесь находилось профессиональное училище № 30, которое позже было реорганизовано в колледж.<br>
+                   В корпусе оборудованы 34 учебных кабинета, включая 3 специализированных для IT-дисциплин, 9 мастерских и 3 лаборатории для практических занятий.<br>
+                   В первом корпусе ведётся подготовка по направлениям, связанным с IT, связью и радиоэлектроникой. Среди специальностей — как исторические («Монтажник связи»), так и современные («Программирование», «Сетевое администрирование»).<br>
+                   Рядом с корпусом расположено общежитие для иногородних студентов (ул. Первомайская, д. 40) на 144 места. В нём есть библиотека, медпункт и зоны отдыха. На территории корпуса также находятся столовая, тренажёрный зал и молодежные центры.<br>
+                   Первый корпус остаётся ключевой площадкой колледжа, сочетая традиции технического образования с современными цифровыми технологиями.
+
                 </div>
-            </dif>
-                <img src="img/860.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+                <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/vologodskiy_kolledzh_svyazi_i_informatsionnykh_tekhnologiy/1769469695/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Вологодский колледж связи и информационных технологий</a><a href="https://yandex.ru/maps/21/vologda/category/college/184106236/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Колледж в Вологде</a><iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=39.892868%2C59.208200&mode=poi&poi%5Bpoint%5D=39.892377%2C59.208342&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1769469695&z=18.78" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
             </div>
                 <div class="note-wrapper">
-                    <img src="img/619.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                <div class="note2"> <dif class="animated-text">
-                    <h2>4. Курсы и дисциплины     <img src="img/radioelectronic.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
-                    Студенты могут поступить на одну из даных специальностей:<br><br>
-
-                    Электромонтер охранно - пожарной сигнализации <br>
-                    Сети связи и системы коммутации	<br>
-                    Документационное обеспечение управления и архивоведение <br>
-                    Техническое обслуживание и ремонт радиоэлектронной техники <br>
-                    Компьютерные сети <br>
-                    Информационная безопасность телекоммуникационных систем <br>
-                    Программирование в компьютерных системах <br>
-                    Обеспечение информационной безопасности телекоммуникационных систем <br>
-                    Информационные системы и программирование <br>
-                    Сетевое и системное администрирование
+                    <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/vologodskiy_kolledzh_svyazi_i_informatsionnykh_tekhnologiy/1131130254/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Вологодский колледж связи и информационных технологий</a><a href="https://yandex.ru/maps/21/vologda/category/college/184106236/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Колледж в Вологде</a><iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=39.929553%2C59.196350&mode=poi&poi%5Bpoint%5D=39.928761%2C59.197081&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1131130254&z=16.77" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                <div class="note2"> <div class="animated-text">
+                    <h2>Информация о втором корпусе<img src="img/radioelectronic.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
+                   
+                   <h3>Продолжая информацию о корпусах на карте слева представлено местонахождение второго корпуса<br></h3>
+                   Краткая справка о втором корпусе:<br>
+                   Второй корпус Вологодского колледжа связи и информационных технологий (АПОУ ВО «ВКСиИТ») расположен по адресу: г. Вологда, Советский проспект, д. 137. <br>
+                   Корпус был открыт в августе 2017 года и используется для изучения общеобразовательных дисциплин.<br> 
+                   Здесь проводятся экологические и молодежные мероприятия, включая волонтерские акции в рамках проекта «Чистые игры». <br>
+                   В здании оборудованы учебные аудитории для теоретических занятий, а на территории организуются временные площадки для квестов и субботников. <br>
+                   Студенты и преподаватели активно участвуют в городских экологических проектах, таких как уборка парка «Евковка».<br> 
+                   В отличие от первого корпуса на Первомайской, где сосредоточены специализированные лаборатории, второй корпус ориентирован на общеобразовательную подготовку и внеучебную деятельность.<br> 
                 </div>
-            </dif>
+            </div>
             </div>
             <div class="note-wrapper">
                 <div class="note">
-                    <dif class="animated-text">
+                    <div class="animated-text">
                     <h2>5. Дополнительные возможности     <img src="img/palitra.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
                    <h3>Актуальные кружки и секции</h3><br>
                     Футбол<br>
@@ -380,38 +460,98 @@
                     Спортивный студенческий клуб «Красные волки»<br>
                     Актив музея связи<br>
                     Актив первичного отделения Первых<br>
-                     </dif>
+                     </div>
                 </div>
-                <img src="img/423.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="img/893.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
             <div class="note-wrapper">
-                <img src="img/118.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                <div class="note2"> <dif class="animated-text">
-                    <h2>6. Поступление     <img src="img/agriculture.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
-                    Документы: для поступления необходимы аттестат о среднем образовании и результаты ЕГЭ (если
-                    требуется).<br>
-                    Собеседование: может проводиться для некоторых специальностей.<br>
-                    Сроки подачи документов: уточняйте на официальном сайте колледжа.
-                </dif>
+                <img src="img/240.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note2"> <div class="animated-text">
+                    <h2>Расписание<img src="img/agriculture.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    <h2>Где смотреть расписание?<br></h2>
+
+Чтобы не пропустить занятия, всегда проверяйте официальное расписание!<br>
+На <a href="https://vksit.ru/#/">официальном сайте</a> – там всегда актуальная версия с изменениями и обновлениями.<br>
+В <a href="https://t.me/VKSIT_rasp_bot">телеграмм-боте</a> – удобно, быстро и под рукой.
+                </div>
+            </div>
+            </div>
+            
+            </div>
+              </div>
+            </div>
+            
+        </section>
+    </div>
+   </div>
+   <div id="Tab2" class="tab-content">
+   
+
+    <div class="content-container">
+        <section>
+            <div class="section-header">
+            </div>
+            <div class="notes-container">
+                <div class="note-wrapper">
+                <div class="note" >
+                    <div class="animated-text">
+                    <h2>Общая информация о колледже     <img src="img/railway.png" style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    Вологодский колледж связи и информационных технологий (ВКСИТ) предлагает обучение по современным
+                    направлениям в области связи и IT. Колледж располагает современным оборудованием и
+                    высококвалифицированным преподавательским составом.<br>
+                    <h3>Основные сведения</h3><br>
+                    Полное наименование автономного учреждения:<br>
+                    Автономное профессиональное образовательное учреждение Вологодской области "Вологодский колледж связи и информационных технологий".<br>
+                    Официальное сокращенное наименование: "АПОУ ВО "ВКСиИТ".<br>
+                    Организационно-правовая форма - учреждение.<br>
+                    Тип учреждения - автономное учреждение.<br>
+                    Учреждение в соответствии с реализуемыми образовательными программами по типу является профессиональной образовательной организацией.<br>
+                     </div>
+                </div>
+            
+                <img src="img/788.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+       
+            <div class="note-wrapper">
+                <img src="img/998.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note2">
+                    <div class="animated-text">
+                    <h2>Направления обучения     <img src="img/water.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    Связь и телекоммуникации: подготовка специалистов в области мобильной связи, передачи данных и
+                    сетевой инфраструктуры.<br>
+                    Информационные технологии: изучение программирования, разработки программного обеспечения и работы с
+                    базами данных.<br>
+                    Компьютерные сети: проектирование, администрирование и управление компьютерными сетями.
+                </div>
             </div>
             </div>
             <div class="note-wrapper">
                 <div class="note">
-                    <dif class="animated-text">
-                    <h2>7. Карьера и трудоустройство     <img src="img/electrical.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    <div class="animated-text">
+                    <h2>Учебный процесс     <img src="img/industry.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    Формат обучения: предлагается как очное, так и заочное обучение.<br>
+                    Длительность обучения: обычно составляет 3-4 года в зависимости от выбранной программы.<br>
+                    Практика: обязательная производственная практика на предприятиях связи и IT-компаниях для получения
+                </div>
+            </div>
+                <img src="img/860.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="note-wrapper">
+                <img src="img/791.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="note">
+                    <div class="animated-text">
+                    <h2>Карьера и трудоустройство     <img src="img/electrical.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
                     Поддержка в трудоустройстве: колледж помогает выпускникам с трудоустройством, предоставляет
                     информацию о вакансиях и организует ярмарки вакансий.<br>
                     Партнёрства с компаниями: сотрудничество с различными предприятиями для обеспечения практики и
                     трудоустройства студентов.
-                </dif>
+                </div>
             </div>
-                <img src="img/791.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
                 <div class="note-wrapper">
-                    <img src="img/425.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note2">
-                    <dif class="animated-text">
-                    <h2>8. Контакты и ресурсы     <img src="img/fuel.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
+                    <div class="animated-text">
+                    <h2>Контакты и ресурсы     <img src="img/fuel.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
                     Официальный сайт колледжа: актуальная информация о программах, расписании и новостях. <a href="https://vksit.ru/#/">сайт</a><br>
                     Социальные сети: следите за новостями и событиями колледжа в социальных сетях для получения
                     оперативной информации. <a href="https://vk.com/vks_it?from=groups">Группа Вк</a><br>
@@ -421,11 +561,12 @@
                     Контактный телефон: 8 (817) 226-70-90<br>
                     Факс: 8 (817) 226-70-90<br>
                     Электронный адрес колледжа: contact@vksit.ru
-                </dif>
+                </div>
             </div>
+              <img src="img/425.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
               </div>
             </div>
-            <dif class="animated-text">
+            <div class="animated-text">
             <details>
                 <summary><h2>история колледжа</h2></summary>
 
@@ -483,9 +624,32 @@
                 прошлым дорожим, И в старом красоту находим, <br>
                 Хоть новому принадлежим».</p></h3></i>
             </p>
-</dif>
+</div>
+
+
                  </details>
         </section>
     </div>
+</div>
+</div>
+<script>
+   function openTab(evt, tabName) {
+        // Скрыть все вкладки
+        var tabs = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+        }
+        
+        // Убрать активный класс со всех кнопок
+        var tabButtons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active");
+        }
+        
+        // Показать текущую вкладку и сделать кнопку активной
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
 </body>
 </html>
