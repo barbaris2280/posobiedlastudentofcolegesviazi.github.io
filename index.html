@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Сайт для студентов ВКСИТа</title>
     <style>
-       body {
+         body {
             font-family: 'Arial', sans-serif;
             background-image: url('img/566.png');
             background-size: cover;
@@ -21,10 +21,10 @@
         }
 
         header {
-            background-image: url('img/777.png');
+            background-image: url('img/125.png');
             background-size: cover;
             background-position: center;
-            color: #ffffff;
+            color: #000000;
             padding: 15px;
             text-align: center;
             border-radius: 10px;
@@ -128,7 +128,7 @@
         }
         
         .note, .note2 {
-            background-image: url('img/167.png');
+            background-image: url('img/487.png');
             background-size: cover;
             background-position: center;
             padding: 15px;
@@ -141,7 +141,7 @@
         }
 
         .note2 {
-            background-image: url('img/366.png');
+            background-image: url('img/487.png');
         }
 
         h1, h2, h3 {
@@ -196,10 +196,10 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-image: url('img/444.png');
+            background-image: url('img/023.png');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: black;
             border: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
@@ -231,12 +231,11 @@
 
         .tab-button {
             background-color: #f1f1f1;
-            border: 1px solid #ccc;
             border-bottom: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            border-radius: 5px 5px 0 0;
+            border-radius: 5px 5px 5px 5px;
             text-align: center;
             max-width: 200px;
             min-width: 120px;
@@ -244,16 +243,25 @@
 
         .tab-button.active {
             background-color: white;
-            border-bottom: 1px solid white;
+            border-bottom: 5px solid rgb(197, 8, 226);
             margin-bottom: -1px;
         }
         
-        .container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 10px;
-        }
+       .tab-buttons-container {
+    width: 100%;
+    max-width: 1200px; /* Можно ограничить ширину, как у основного контента */
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: flex-end; /* Выравнивание кнопок справа */
+}
+
+/* Обновленные стили для кнопок (можно оставить старые + добавить margin) */
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0; /* Отступ сверху и снизу */
+}
         
         .yandex-map-container {
             position: relative;
@@ -287,6 +295,79 @@
         details p:not(.center) {
             text-align: justify; /* Весь остальной текст по ширине */
         }
+
+        /* Стили для карусели */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.carousel img {
+    min-width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(197, 8, 226, 0.7);
+    color: white;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: rgb(197, 8, 226);
+}
         /* Адаптивные стили */
         @media (max-width: 480px) {
             .yandex-map-container iframe {
@@ -442,19 +523,15 @@
         <h1>Сайт для студентов ВКСИТа</h1>
         <img src="img/508.png" width="359" height="59" class="nav-image"  alt="изображение 3" onclick="toggleSound()" style="transition: 0.3s;cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
     </header>
-    <nav>
-        
-        <div class="nav-links">
-            <a href="https://vksit.ru/#/">Сайт ВКСИТа</a>
-            <a href="https://vk.com/vks_it?from=groups">Группа Вк</a>
-            <a href="https://ssuz.vip.edu35.ru/auth/login-page">Сайт Электронного дневника</a>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="tab-buttons">
-            <button class="tab-button active" onclick="openTab(event, 'Tab1')">Основная </button>
-            <button class="tab-button" onclick="openTab(event, 'Tab2')">Дополнительная </button>
-        </div>
+    
+    <div class="tab-buttons-container">
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'Tab1')"><b>Справочник для <br>первокурсника</b></button>
+        <button class="tab-button" onclick="openTab(event, 'Tab2')"><b>Абитуриенту</b></button>
+    </div>
+</div>
+
+<nav></nav>
 
         <div id="Tab1" class="tab-content active">
     <div class="content-container">
@@ -469,30 +546,24 @@
                     <p id="output"></p> 
                 </div>
             </div>
-            <div class="notes-container">
-                <div class="note-wrapper">
-                <div class="note" >
-                    <div class="animated-text">
-                    <h2>Набор специальностей <img src="img/sviaz.png" style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
-                    <h3>В нашем колледже преставлен огромный выбор дисциплин для обучения:</h3>
-                    Документационное обеспечение управления и архивоведение <br>
-                    Техническое обслуживание и ремонт радиоэлектронной техники <br>
-                    Обеспечение информационной безопасности телекоммуникационных систем <br>
-                    Информационные системы и программирование<br>
-                    Сетевое и системное администрирование <br>
-                    Инфокоммуникационные сети и системы связи<br>
-                    Монтаж, техническое обслуживание и ремонт электронных приборов и устройств<br>
-                    Интеллектуальные интегрированные системы <br>
-                    Обеспечение информационной безопасности телекоммуникационных систем <br>
-                    Информационные системы и программирование<br>
-                     </div>
-                </div>
-            
-                <img src="img/568.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-            </div>
-       
+           
             <div class="note-wrapper">
-                <img src="img/567.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+               <div class="carousel-container">
+    <div class="carousel">
+        <img src="img/568_1.png" alt="Изображение 1">
+        <img src="img/568_2.png" alt="Изображение 2">
+        <img src="img/568_3.png" alt="Изображение 3">
+        <!-- Добавьте дополнительные изображения при необходимости -->
+    </div>
+    <button class="carousel-btn prev">❮</button>
+    <button class="carousel-btn next">❯</button>
+    <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <!-- Добавьте точки для каждого изображения -->
+    </div>
+</div>
                 <div class="note2">
                     <div class="animated-text">
                     <h2>Педагогический состав    <img src="img/robotics.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
@@ -546,6 +617,18 @@
             </div>
             </div>
             <div class="note-wrapper">
+                <div class="note2"> <div class="animated-text">
+                    <h2>Полезные ссылки<img src="img/agriculture.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
+                 <a href="https://vksit.ru/#/">Официальный сайт</a> – там публикуется самое точное и обновлённое расписание.<br>
+                 <a href="https://vk.com/vks_it?from=groups">Группа ВКонтакте</a> – следите за новостями и оперативными изменениями.<br>
+                 <a href="https://ssuz.vip.edu35.ru/auth/login-page">Электронный дневник</a> – удобный способ проверить свои оценки.<br>
+                 <a href="https://t.me/VKSIT_rasp_bot">Телеграм-бот</a> – быстрое получение расписания в пару кликов.
+                </div>
+            </div>
+            <img src="img/240.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="note-wrapper">
+                 <img src="img/893.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="note">
                     <div class="animated-text">
                     <h2>5. Дополнительные возможности     <img src="img/palitra.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
@@ -570,20 +653,9 @@
                     Актив первичного отделения Первых<br>
                      </div>
                 </div>
-                <img src="img/893.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             </div>
-            <div class="note-wrapper">
-                <img src="img/240.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                <div class="note2"> <div class="animated-text">
-                    <h2>Расписание<img src="img/agriculture.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
-                    <h2>Где смотреть расписание?<br></h2>
 
-Чтобы не пропустить занятия, всегда проверяйте официальное расписание!<br>
-На <a href="https://vksit.ru/#/">официальном сайте</a> – там всегда актуальная версия с изменениями и обновлениями.<br>
-В <a href="https://t.me/VKSIT_rasp_bot">телеграмм-боте</a> – удобно, быстро и под рукой.
-                </div>
-            </div>
-            </div>
+            
             
             </div>
               </div>
@@ -617,19 +689,41 @@
                      </div>
                 </div>
             
-                <img src="img/788.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+               <img src="img/788.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
             </div>
        
             <div class="note-wrapper">
-                <img src="img/998.png" style="transition: 0.3s; max-width: 50%; height: auto;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="carousel-container">
+    <div class="carousel">
+        <img src="img/567_1.png" alt="Изображение 1">
+        <img src="img/567_2.png" alt="Изображение 2">
+        <img src="img/567_3.png" alt="Изображение 3">
+        <!-- Добавьте дополнительные изображения при необходимости -->
+    </div>
+    <button class="carousel-btn prev">❮</button>
+    <button class="carousel-btn next">❯</button>
+    <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <!-- Добавьте точки для каждого изображения -->
+    </div>
+</div>
                 <div class="note2">
                     <div class="animated-text">
-                    <h2>Направления обучения     <img src="img/water.png" style="transition: 0.3s; " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2><br>
-                    Связь и телекоммуникации: подготовка специалистов в области мобильной связи, передачи данных и
-                    сетевой инфраструктуры.<br>
-                    Информационные технологии: изучение программирования, разработки программного обеспечения и работы с
-                    базами данных.<br>
-                    Компьютерные сети: проектирование, администрирование и управление компьютерными сетями.
+                  <h2>Набор специальностей <img src="img/sviaz.png" style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></h2>
+                    <h3>В нашем колледже преставлен огромный выбор дисциплин для обучения:</h3>
+                    Документационное обеспечение управления и архивоведение <br>
+                    Техническое обслуживание и ремонт радиоэлектронной техники <br>
+                    Обеспечение информационной безопасности телекоммуникационных систем <br>
+                    Информационные системы и программирование<br>
+                    Сетевое и системное администрирование <br>
+                    Инфокоммуникационные сети и системы связи<br>
+                    Монтаж, техническое обслуживание и ремонт электронных приборов и устройств<br>
+                    Интеллектуальные интегрированные системы <br>
+                    Обеспечение информационной безопасности телекоммуникационных систем <br>
+                    Информационные системы и программирование<br>
                 </div>
             </div>
             </div>
@@ -679,7 +773,7 @@
                 <summary><h2>история колледжа</h2></summary>
 
 
-            <p> <h3><p class="center"> История </p></h3>
+            <p> <h3> История </h3>
                 Вологодский колледж связи и информационных технологий - единственная на территории Вологодской области образовательная организация, осуществляющая<br>
                 подготовку кадров для Цифровой экономики региона, по направлениям:<br>
                 информационные технологии;<br>
@@ -739,7 +833,7 @@
         </section>
     </div>
 </div>
-</div>
+
 <script>
    function openTab(evt, tabName) {
         // Скрыть все вкладки
@@ -758,6 +852,83 @@
         document.getElementById(tabName).classList.add("active");
         evt.currentTarget.classList.add("active");
     }
+    // Карусель
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('.carousel-container');
+        
+        carousels.forEach(carouselContainer => {
+            const carousel = carouselContainer.querySelector('.carousel');
+            const images = carousel.querySelectorAll('img');
+            const prevBtn = carouselContainer.querySelector('.prev');
+            const nextBtn = carouselContainer.querySelector('.next');
+            const dots = carouselContainer.querySelectorAll('.dot');
+            
+            let currentIndex = 0;
+            const totalImages = images.length;
+            let intervalId;
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Обновляем активные точки
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                updateCarousel();
+            }
+            
+            // Навигация по точкам
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetInterval();
+                });
+            });
+            
+            // Кнопки
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+            
+            // Автопрокрутка
+            function startInterval() {
+                intervalId = setInterval(nextSlide, 5000); // 5 секунд
+            }
+            
+            function resetInterval() {
+                clearInterval(intervalId);
+                startInterval();
+            }
+            
+            startInterval();
+            
+            // Пауза при наведении
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(intervalId);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                startInterval();
+            });
+        });
+    });
+
 </script>
 </body>
 </html>
